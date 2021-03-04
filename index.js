@@ -1,9 +1,13 @@
 const inquirer = require('inquirer')
 const fs = require('fs');
-const Employee = require('./lib/Employee')
+
 const Manager = require('./lib/Manager')
 const Engineer = require('./lib/Engineer')
 const Intern = require('./lib/Intern')
+
+const generateHTML = require('./src/generateHTML')
+const generateCard = require('./src/generateHTML')
+
 let title = 'manager'
 const team = []
 let newEmployee = ''
@@ -33,7 +37,7 @@ const questions = () => {
                     return inquirer.prompt(
                         {
                             type: 'input',
-                            name: 'office',
+                            name: 'special',
                             message: 'Office #: '
                         }
                     )
@@ -43,7 +47,7 @@ const questions = () => {
                     return inquirer.prompt([
                         {
                             type: 'input',
-                            name: 'github',
+                            name: 'special',
                             message: "GitHub username: "
                         }
                     ])
@@ -53,7 +57,7 @@ const questions = () => {
                     return inquirer.prompt([
                         {
                             type: 'input',
-                            name: 'school',
+                            name: 'special',
                             message: 'School name: '
                         }
                     ])
@@ -63,7 +67,7 @@ const questions = () => {
             }
         })
         .then((ans) => {
-            newEmployee.push(ans)
+            newEmployee.push(ans.special)
             return inquirer.prompt([
                 {
                     type: 'list',
@@ -73,6 +77,7 @@ const questions = () => {
                 }
             ]).then(ans => {
                 team.push(newEmployee)
+                // fs.appendFileSync('./dist/test.html', generateCard(newEmployee))
                 switch (ans.title) {
                     case 'Add Engineer':
                         title = 'engineer'
@@ -88,10 +93,17 @@ const questions = () => {
         })
 }
 
+function writeToFile() {
+    const completedHTML = generateHTML(team)
+    fs.writeFileSync('./dist/test.html', completedHTML);
+    console.log('Team profiles created on webpage');
+}
+
 function init() {
     try {
         questions().then(() => {
             console.log(team);
+            writeToFile()
             // console.log(newEmployee);
         });
         // console.log(team);
