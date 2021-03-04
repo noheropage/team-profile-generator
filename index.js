@@ -6,7 +6,7 @@ const Engineer = require('./lib/Engineer')
 const Intern = require('./lib/Intern')
 
 const generateHTML = require('./src/generateHTML')
-const generateCard = require('./src/generateHTML')
+// const generateCard = require('./src/generateHTML')
 
 let title = 'manager'
 const team = []
@@ -94,8 +94,11 @@ const questions = () => {
 }
 
 function writeToFile() {
+    // const team = [new Manager ('Steve', '12', 'Steve@steve.com', 90), new Engineer ('Joe', 43, 'joe@joe', 'joejoe')]
+    // console.log(team);
     const completedHTML = generateHTML(team)
     fs.writeFileSync('./dist/test.html', completedHTML);
+    // console.log(completedHTML);
     console.log('Team profiles created on webpage');
 }
 
@@ -113,4 +116,5 @@ function init() {
 }
 
 init();
+// writeToFile();
 // console.log(team);
