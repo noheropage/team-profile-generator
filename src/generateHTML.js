@@ -1,14 +1,16 @@
+
 function generateCards(employees) {
-    // get objects seperated out and create new card for each
+    // variable to hold all of the html for the profile cards
     let html = ''
     employees.forEach(element => {
+        // change key and value data depending on employee title/role
         let specialText = ''
         switch (element.getRole()) {
             case 'Manager':
                 specialText = `Office Number: ${element.getOfficeNumber()}`
                 break;
             case 'Engineer':
-                specialText = `GitHub: <a href='github.com/${element.getGithub()}'>${element.getGithub()}</a>`
+                specialText = `GitHub: <a href='https://github.com/${element.getGithub()}'>${element.getGithub()}</a>`
                 break;
             case 'Intern':
                 specialText = `School: ${element.getSchool()}`
@@ -16,6 +18,8 @@ function generateCards(employees) {
             default:
                 break;
         }
+
+        // create card for the employee
         const card = `
         <div class="col-sm-4 col-md-3 mx-auto">
         <div class="card p-2">
@@ -34,11 +38,10 @@ function generateCards(employees) {
     </div>
     </div>
         `
+        // add the completed card into a string of html
         html += card;
     });
     return html;
-
-    // populate each card with import profile info
 }
 
 function generateHTML(team) {
@@ -69,4 +72,3 @@ function generateHTML(team) {
 }
 
 module.exports = generateHTML;
-// module.exports = generateCards;

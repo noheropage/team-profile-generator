@@ -6,13 +6,15 @@ const Engineer = require('./lib/Engineer')
 const Intern = require('./lib/Intern')
 
 const generateHTML = require('./src/generateHTML')
-// const generateCard = require('./src/generateHTML')
 
+// user to run program will be a manager who is building a profile of the team
 let title = 'manager'
 const team = []
-let newEmployee = ''
+// let newEmployee = ''
 
 const questions = () => {
+    let newEmployee = ''
+    // first three questions are the same regardless of role/title
     return inquirer.prompt([
         {
             type: 'input',
@@ -30,6 +32,8 @@ const questions = () => {
             message: 'Email address: ',
         },
     ])
+    // different roles/titles have different input and output data
+    // put current answers into the appropriate class
         .then((answers) => {
             switch (title) {
                 case 'manager':
@@ -67,6 +71,7 @@ const questions = () => {
             }
         })
         .then((ans) => {
+            // add the last title-special question to the current employee profile being built
             newEmployee.push(ans.special)
             return inquirer.prompt([
                 {
@@ -76,8 +81,10 @@ const questions = () => {
                     choices: ['Add Engineer', 'Add Intern', 'No more employees to add']
                 }
             ]).then(ans => {
+                // add the finished employee profile to an array of team members
                 team.push(newEmployee)
-                // fs.appendFileSync('./dist/test.html', generateCard(newEmployee))
+
+                // change title to match the next employee
                 switch (ans.title) {
                     case 'Add Engineer':
                         title = 'engineer'
@@ -94,27 +101,20 @@ const questions = () => {
 }
 
 function writeToFile() {
-    // const team = [new Manager ('Steve', '12', 'Steve@steve.com', 90), new Engineer ('Joe', 43, 'joe@joe', 'joejoe')]
-    // console.log(team);
     const completedHTML = generateHTML(team)
     fs.writeFileSync('./dist/test.html', completedHTML);
-    // console.log(completedHTML);
     console.log('Team profiles created on webpage');
 }
 
 function init() {
     try {
         questions().then(() => {
-            console.log(team);
             writeToFile()
-            // console.log(newEmployee);
         });
-        // console.log(team);
     } catch (error) {
         console.log(error);
     }
 }
 
+// start program
 init();
-// writeToFile();
-// console.log(team);
