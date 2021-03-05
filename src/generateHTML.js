@@ -5,13 +5,13 @@ function generateCards(employees) {
         let specialText = ''
         switch (element.getRole()) {
             case 'Manager':
-                specialText = `Office Number: ${element.getSpecial()}`
+                specialText = `Office Number: ${element.getOfficeNumber()}`
                 break;
             case 'Engineer':
-                specialText = `GitHub: <a href='github.com/${element.getSpecial()}'>${element.getSpecial()}</a>`
+                specialText = `GitHub: <a href='github.com/${element.getGithub()}'>${element.getGithub()}</a>`
                 break;
             case 'Intern':
-                specialText = `School: ${element.getSpecial()}`
+                specialText = `School: ${element.getSchool()}`
                 break;
             default:
                 break;
