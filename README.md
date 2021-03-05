@@ -11,6 +11,13 @@ App also uses jest to run a series of tests on each of the classes.
 
 ## Usage
     node index
-To start. After the prompts are answered it will create/override the file dist/index.html
+After the prompts are answered it will create/override the file dist/index.html
+
+    npm test
+
+
+
+
 
 #### YouTube Video Link: 
+[Running the team profile generator & tests in the command line on VS Code](https://youtu.be/jECxFLQRUYM "Team Profile Generator")

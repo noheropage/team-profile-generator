@@ -102,7 +102,7 @@ const questions = () => {
 
 function writeToFile() {
     const completedHTML = generateHTML(team)
-    fs.writeFileSync('./dist/test.html', completedHTML);
+    fs.writeFileSync('./dist/index.html', completedHTML);
     console.log('Team profiles created on webpage');
 }
 
