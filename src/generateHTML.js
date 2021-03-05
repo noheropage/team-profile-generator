@@ -17,8 +17,8 @@ function generateCards(employees) {
                 break;
         }
         const card = `
-        <div class="col-sm-4 col-md-3">
-        <div class="card m-1 p-2">
+        <div class="col-sm-4 col-md-3 mx-auto">
+        <div class="card p-2">
 
         <div class="card-body text-white bg-primary mb-3">
             <h5 class="card-title">${element.getName()}</h5>
@@ -57,7 +57,7 @@ function generateHTML(team) {
     <body>
     <header class="jumbotron jumbotron-fluid bg-success">
         <div class="container">
-            <h1 class="display-4 text-center font-weight-bold">My Team</h1>
+            <h1 class="display-4 text-center text-white font-weight-bold">My Team</h1>
         </div>
     </header>
         <div class='row'>
