@@ -3,7 +3,7 @@ const Manager = require('../lib/Manager');
 describe("Manager class", () => {
     const test = new Manager("Steve", 1, "steve@steve.com", "Suite A")
     it("Creating a new Manager should return an Object", () => {
-        expect(typeof test).toBe('Object');
+        expect(typeof test).toBe('object');
     });
 
     it("Passing in a name should return the name", () => {

@@ -3,7 +3,7 @@ const Intern = require('../lib/Intern');
 describe("Intern class", () => {
     const test = new Intern("Steve", 1, "steve@steve.com", "UW")
     it("Creating a new Intern should return an Object", () => {
-        expect(typeof test).toBe('Object');
+        expect(typeof test).toBe('object');
     });
 
     it("Passing in a name should return the name", () => {

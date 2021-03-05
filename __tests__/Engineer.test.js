@@ -4,7 +4,7 @@ const Engineer = require('../lib/Engineer');
 describe("Engineer class", () => {
     const test = new Engineer("Steve", 1, "steve@steve.com", "steveisme")
     it("Creating a new Engineer should return an Object", () => {
-        expect(typeof test).toBe('Object');
+        expect(typeof test).toBe('object');
     });
 
     it("Passing in a name should return the name", () => {

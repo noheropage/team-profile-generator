@@ -3,7 +3,7 @@ const Employee = require('../lib/Employee');
 describe("Employee class", () => {
     const test = new Employee("Steve", 1, "steve@steve.com")
     it("Creating a new Employee should return an Object", () => {
-        expect(typeof test).toBe('Object');
+        expect(typeof test).toBe('object');
     });
 
     it("Passing in a name should return the name", () => {
