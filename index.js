@@ -10,7 +10,6 @@ const generateHTML = require('./src/generateHTML')
 // user to run program will be a manager who is building a profile of the team
 let title = 'manager'
 const team = []
-// let newEmployee = ''
 
 const questions = () => {
     let newEmployee = ''
