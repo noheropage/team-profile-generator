@@ -26,7 +26,7 @@ function generateCards(employees) {
         </div>
         <div>
             <ul class="list-group list-group-flush m-1">
-                <li class="list-group-item">Id: ${element.getId()}</li>
+                <li class="list-group-item">ID: ${element.getId()}</li>
                 <li class="list-group-item">Email: <a href='mailto:${element.getEmail()}'>${element.getEmail()}</a></li>
                 <li class="list-group-item">${specialText}</li>
             </ul>
