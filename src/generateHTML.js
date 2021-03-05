@@ -2,24 +2,36 @@ function generateCards(employees) {
     // get objects seperated out and create new card for each
     let html = ''
     employees.forEach(element => {
+        let specialText = ''
+        switch (element.getRole()) {
+            case 'Manager':
+                specialText = `Office Number: ${element.getSpecial()}`
+                break;
+            case 'Engineer':
+                specialText = `GitHub: <a href='github.com/${element.getSpecial()}'>${element.getSpecial()}</a>`
+                break;
+            case 'Intern':
+                specialText = `School: ${element.getSpecial()}`
+                break;
+            default:
+                break;
+        }
         const card = `
-        <div class="card" style="width: 18rem;">
+        <div class="col-sm-4 col-md-3">
+        <div class="card m-1 p-2">
 
         <div class="card-body text-white bg-primary mb-3">
             <h5 class="card-title">${element.getName()}</h5>
             <p class="card-text">${element.getRole()}</p>
         </div>
         <div>
-            <ul class="list-group list-group-flush">
+            <ul class="list-group list-group-flush m-1">
                 <li class="list-group-item">Id: ${element.getId()}</li>
-                <li class="list-group-item">Email: ${element.getEmail()}</li>
-                <li class="list-group-item">${element.getSpecial()}</li>
+                <li class="list-group-item">Email: <a href='mailto:${element.getEmail()}'>${element.getEmail()}</a></li>
+                <li class="list-group-item">${specialText}</li>
             </ul>
         </div>
-        <div class="card-body">
-            <a href="#" class="card-link">Card link</a>
-            <a href="#" class="card-link">Another link</a>
-        </div>
+    </div>
     </div>
         `
         html += card;
@@ -43,8 +55,15 @@ function generateHTML(team) {
         <link rel="stylesheet" href="style.css">
     </head>
     <body>
+    <header class="jumbotron jumbotron-fluid bg-success">
+        <div class="container">
+            <h1 class="display-4 text-center font-weight-bold">My Team</h1>
+        </div>
+    </header>
+        <div class='row'>
         ${generateCards(team)}
-        <script src="../src/generateHTML.js"></script>
+        </div>
+
     </body>
     </html>`
 }
