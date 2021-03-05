@@ -1,9 +1,9 @@
 const { it, expect } = require('@jest/globals');
 const Engineer = require('../lib/Engineer');
 
-describe("Employee class", () => {
+describe("Engineer class", () => {
     const test = new Engineer("Steve", 1, "steve@steve.com", "steveisme")
-    it("Creating a new Employee should return an Object", () => {
+    it("Creating a new Engineer should return an Object", () => {
         expect(typeof test).toBe('Object');
     });
 
@@ -19,7 +19,7 @@ describe("Employee class", () => {
         expect(test.getId()).toBe(1);
     });
 
-    it("Role is Employee", () => {
+    it("Role is Engineer", () => {
         expect(test.getRole()).toBe("Engineer");
     });
 
